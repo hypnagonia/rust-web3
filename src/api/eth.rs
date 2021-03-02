@@ -107,7 +107,7 @@ impl<T: Transport> Eth<T> {
         let result = match block {
             BlockId::Hash(hash) => {
                 let hash = helpers::serialize(&hash);
-                self.transport.execute("eth_getBlockByHash", vec![hash, include_txs])
+                self.transport.execute("hmy_getBlockByHash", vec![hash, include_txs])
             }
             BlockId::Number(num) => {
                 let num = helpers::serialize(&num);
@@ -125,7 +125,7 @@ impl<T: Transport> Eth<T> {
         let result = match block {
             BlockId::Hash(hash) => {
                 let hash = helpers::serialize(&hash);
-                self.transport.execute("eth_getBlockByHash", vec![hash, include_txs])
+                self.transport.execute("hmy_getBlockByHash", vec![hash, include_txs])
             }
             BlockId::Number(num) => {
                 let num = helpers::serialize(&num);
@@ -534,7 +534,7 @@ mod tests {
     rpc_test! (
       Eth:block:block_by_hash, BlockId::Hash(H256::from_low_u64_be(0x123))
       =>
-      "eth_getBlockByHash", vec![r#""0x0000000000000000000000000000000000000000000000000000000000000123""#, r#"false"#];
+      "hmy_getBlockByHash", vec![r#""0x0000000000000000000000000000000000000000000000000000000000000123""#, r#"false"#];
       ::serde_json::from_str(EXAMPLE_BLOCK).unwrap()
       => Some(::serde_json::from_str::<Block<H256>>(EXAMPLE_BLOCK).unwrap())
     );
