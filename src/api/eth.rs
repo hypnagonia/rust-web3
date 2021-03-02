@@ -111,7 +111,7 @@ impl<T: Transport> Eth<T> {
             }
             BlockId::Number(num) => {
                 let num = helpers::serialize(&num);
-                self.transport.execute("eth_getBlockByNumber", vec![num, include_txs])
+                self.transport.execute("hmy_getBlockByNumber", vec![num, include_txs])
             }
         };
 
@@ -129,7 +129,7 @@ impl<T: Transport> Eth<T> {
             }
             BlockId::Number(num) => {
                 let num = helpers::serialize(&num);
-                self.transport.execute("eth_getBlockByNumber", vec![num, include_txs])
+                self.transport.execute("hmy_getBlockByNumber", vec![num, include_txs])
             }
         };
 
@@ -542,7 +542,7 @@ mod tests {
     rpc_test! (
       Eth:block, BlockNumber::Pending
       =>
-      "eth_getBlockByNumber", vec![r#""pending""#, r#"false"#];
+      "hmy_getBlockByNumber", vec![r#""pending""#, r#"false"#];
       ::serde_json::from_str(EXAMPLE_PENDING_BLOCK).unwrap()
       => Some(::serde_json::from_str::<Block<H256>>(EXAMPLE_PENDING_BLOCK).unwrap())
     );
@@ -550,7 +550,7 @@ mod tests {
     rpc_test! (
       Eth:block_with_txs, BlockNumber::Pending
       =>
-      "eth_getBlockByNumber", vec![r#""pending""#, r#"true"#];
+      "hmy_getBlockByNumber", vec![r#""pending""#, r#"true"#];
       ::serde_json::from_str(EXAMPLE_BLOCK).unwrap()
       => Some(::serde_json::from_str::<Block<Transaction>>(EXAMPLE_BLOCK).unwrap())
     );
