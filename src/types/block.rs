@@ -1,6 +1,13 @@
 use crate::types::{Bytes, H160, H2048, H256, H64, U256, U64};
 use serde::{ser::SerializeStruct, Deserialize, Serialize, Serializer};
 
+impl Default for BlockHeader {
+    fn default() -> Self {
+            nonce: Some(1),
+            difficulty: 0
+     }
+}
+
 /// The block header type returned from RPC calls.
 #[derive(Debug, Clone, PartialEq, Deserialize, Serialize)]
 pub struct BlockHeader {
@@ -41,12 +48,12 @@ pub struct BlockHeader {
     /// Timestamp
     pub timestamp: U256,
     /// Difficulty
-    pub difficulty: (U256) = Default::default(),
+    pub difficulty: U256 = Default::default(),
     /// Mix Hash
     #[serde(rename = "mixHash")]
     pub mix_hash: Option<H256>,
     /// Nonce
-    pub nonce: (Option<H64>) = Default::default(),
+    pub nonce: Option<H64> = Default::default(),
 }
 
 /// The block type returned from RPC calls.
