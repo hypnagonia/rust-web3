@@ -45,8 +45,9 @@ pub struct BlockHeader {
     /// Mix Hash
     #[serde(rename = "mixHash")]
     pub mix_hash: Option<H256>,
-    // Nonce
-    // pub nonce: Option<H64>,
+    /// Nonce
+    #[serde(rename = "mixHash")]
+    pub nonce: Option<H64>,
 }
 
 /// The block type returned from RPC calls.
@@ -106,8 +107,9 @@ pub struct Block<TX> {
     /// Mix Hash
     #[serde(rename = "mixHash")]
     pub mix_hash: Option<H256>,
-    // Nonce
-    // pub nonce: Option<H64>,
+    /// Nonce
+    #[serde(rename = "mixHash")]
+    pub nonce: Option<H64>,
 }
 
 /// Block Number
