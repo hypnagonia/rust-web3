@@ -107,11 +107,11 @@ impl<T: Transport> Eth<T> {
         let result = match block {
             BlockId::Hash(hash) => {
                 let hash = helpers::serialize(&hash);
-                self.transport.execute("hmy_getBlockByHash", vec![hash, include_txs])
+                self.transport.execute("eth_getBlockByHash", vec![hash, include_txs])
             }
             BlockId::Number(num) => {
                 let num = helpers::serialize(&num);
-                self.transport.execute("hmy_getBlockByNumber", vec![num, include_txs])
+                self.transport.execute("eth_getBlockByNumber", vec![num, include_txs])
             }
         };
 
