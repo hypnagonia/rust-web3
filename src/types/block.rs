@@ -41,13 +41,13 @@ pub struct BlockHeader {
     /// Timestamp
     pub timestamp: U256,
     /// Difficulty
-    #[serde(alias = "timestamp")]
+    #serde(borrow = "0x")
     pub difficulty: U256,
     /// Mix Hash
     #[serde(rename = "mixHash")]
     pub mix_hash: Option<H256>,
     /// Nonce
-    #[serde(alias = "mixHash")]
+    #serde(borrow = "0x")
     pub nonce: Option<H64>,
 }
 
