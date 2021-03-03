@@ -41,14 +41,12 @@ pub struct BlockHeader {
     /// Timestamp
     pub timestamp: U256,
     /// Difficulty
-    #[serde(borrow = "0x")]
-    pub difficulty: U256,
+    pub difficulty: U256 = Default::default(),
     /// Mix Hash
     #[serde(rename = "mixHash")]
     pub mix_hash: Option<H256>,
     /// Nonce
-    #[serde(borrow = "0x")]
-    pub nonce: Option<H64>,
+    pub nonce: Option<H64> = Default::default(),
 }
 
 /// The block type returned from RPC calls.
