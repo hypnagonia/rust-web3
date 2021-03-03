@@ -41,6 +41,7 @@ pub struct BlockHeader {
     /// Timestamp
     pub timestamp: U256,
     /// Difficulty
+    #[serde(rename = "timestamp")]
     pub difficulty: U256,
     /// Mix Hash
     #[serde(rename = "mixHash")]
@@ -91,6 +92,7 @@ pub struct Block<TX> {
     /// Timestamp
     pub timestamp: U256,
     /// Difficulty
+    #[serde(rename = "timestamp")]
     pub difficulty: U256,
     /// Total difficulty
     #[serde(rename = "totalDifficulty")]
