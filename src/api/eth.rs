@@ -42,7 +42,8 @@ impl<T: Transport> Eth<T> {
     pub fn call(&self, req: CallRequest, block: Option<BlockId>) -> CallFuture<Bytes, T::Out> {
         let req = helpers::serialize(&req);
         let block = helpers::serialize(&block.unwrap_or(BlockNumber::Latest.into()));
-
+        println!("{:?}", req);
+        
         CallFuture::new(self.transport.execute("eth_call", vec![req, block]))
     }
 
